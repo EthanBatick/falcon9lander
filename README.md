@@ -10,3 +10,4 @@ controls:
     UP_ARROW - thrust increase
     DN_ARROW - thrust decrease
     R - reset game
+    ESC - quit game
