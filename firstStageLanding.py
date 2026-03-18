@@ -81,22 +81,22 @@ class MovingObject:
         self.image = self.original_image  # This will hold the rotated image
         self.percentCG = percentCG
         self.angle = angle
-        self.deltaAngle = 0
+        self.deltaAngle = 0.0
 
         self.landed = False
         self.crashed = False
 
         self.throttleHas = throttleHas
-        self.throttlePercent = 0
+        self.throttlePercent = 0.0
 
-        self.gasLeft = gasLeft
+        self.gasLeft = float(gasLeft)
 
-        self.velocityX = 0
-        self.velocityY = 0
+        self.velocityX = 0.0
+        self.velocityY = 0.0
         
         # Initial position and calculations
-        self.xTopLeft = xTopLeft
-        self.yTopLeft = yTopLeft
+        self.xTopLeft = float(xTopLeft)
+        self.yTopLeft = float(yTopLeft)
         
         # Calculate the offset of CG from top left corner
         self.CG_x = self.original_image.get_width() / 2
@@ -108,11 +108,11 @@ class MovingObject:
 
         self.hasFlame = flame
 
-        self.crashedX = 0
-        self.crashedY = 0
+        self.crashedX = 0.0
+        self.crashedY = 0.0
 
-        self.landedX = 0
-        self.landedY = 0
+        self.landedX = 0.0
+        self.landedY = 0.0
 
         
     def draw(self, screen):
@@ -180,9 +180,9 @@ for i in range(0, 100):
 
 trees = []
 for i in range(0, 5):
-    trees.append([random.randint(0, screen_width/2 -100), random.randint(groundPixelY, screen_height)])
+    trees.append([random.randint(0, int(screen_width/2 -100)), random.randint(groundPixelY, screen_height)])
 for i in range(0, 5):
-    trees.append([random.randint(screen_width/2 +100, screen_width), random.randint(groundPixelY, screen_height)])
+    trees.append([random.randint(int(screen_width/2 +100), screen_width), random.randint(groundPixelY, screen_height)])
 
 # Create the Falcon 9 booster as a MovingObject, with CG at 50% (center) vertically
 falcon9STG1 = MovingObject("falcon9STG1.png", .5, 0.5, screen_width/2, 300, 0, True, True)
